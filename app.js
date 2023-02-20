@@ -16,5 +16,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/quotos',quoetsRouter)
+app.use('/quotos',quoetsRouter);
+
+app.use((err,req,res,next)=>{
+  const statusCode = err.statusCode || 500;
+  console.log(err.message, err.stack);
+  res.status(statusCode).json({'message':err.message})
+})
 module.exports = app;

@@ -1,11 +1,12 @@
 const env = process.env;
-
+require('dotenv').config();
+console.log("env:", env.DB_USER)
 const config = {
   db:{
     host:env.DB_HOST || '',
-    user:env.DB_USER || 'root',
-    password: env.DB_PASSWORD || 'boxing',
-    database : env.DB_NAME || 'demo',
+    user:env.DB_USER || '',
+    password: env.DB_PASSWORD || '',
+    database : env.DB_NAME || '',
     waitForConnections:true,
     connectionLimit:env.DB_CONN_LIMIT || 2,
     queueLimit:0,
