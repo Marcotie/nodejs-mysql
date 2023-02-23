@@ -1,4 +1,4 @@
-
+use demo;
 CREATE TABLE `quote` 
 ( `id` INT(11) NOT NULL AUTO_INCREMENT , 
  `quote` VARCHAR(255) NOT NULL , 
