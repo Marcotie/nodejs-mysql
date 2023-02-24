@@ -28,13 +28,13 @@ function validateCreate(quote){
   if(!quote){
     message.push('no object is provided')
   }
-  if(!quote.quote){
-    message.push('quote is empty')
+  if(!quote.name){
+    message.push('name is empty')
   }
-  if(!quote.author){
-    message.push('author is empty')
+  if(!quote.description){
+    message.push('description is empty')
   }
-  if(quote.quote && quote.quote.length>255){
+  if(quote.name && quote.name.length>255){
     message.push('quote cannot be longer than 255 characters')
   }
   if(message.length){
@@ -43,11 +43,12 @@ function validateCreate(quote){
     throw error;
   }
 }
-async function create(quote){
-  validateCreate(quote);
-  const result = await db.query(`insert into quote(quote, author) values (${quote.quote}, ${quote.author})`);
+async function create(data){
+  console.log("validata:",data)
+  validateCreate(data);
+  const result = await db.query(`insert into quote(author,quote) values (?,?)`,[data.name,data.description]);
   if(result.affectedRows){
-    return 'quote created successfully'
+    return ' created successfully'
   }
   return 'error in creating quote'
 }

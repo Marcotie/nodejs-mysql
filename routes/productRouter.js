@@ -18,7 +18,7 @@ router.get("/all",async function(req,res,next){
     next(err)
   }
 })
-router.post("/", async function(req,res,next){
+router.post("/add", async function(req,res,next){
   try{
     res.json(await productService.create(req.body))
   }catch(err){

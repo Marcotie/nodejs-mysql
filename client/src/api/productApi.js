@@ -18,5 +18,11 @@ export const ProductAPI =  {
         page
       }
     })
+  },
+  create: async function(product){
+    return await API.post('/products/add',{
+      name:product.name,
+      description:product.description
+    })
   }
 }
