@@ -1,11 +1,11 @@
 import {useState, useEffect} from 'react';
-import {API} from '../api';
 import {Table} from 'antd';
+import {ProductAPI} from '../api/productAPI';
 
 export const ProductList = ()=>{
   const [products, setProducts] = useState([])
   useEffect(()=>{
-    API.get('/products').then(res=>{
+    ProductAPI.getAll().then(res=>{
       setProducts(res.data)
     }).catch(err=>{
       console.log("err:")
@@ -25,7 +25,7 @@ export const ProductList = ()=>{
   ];
   return(
     <div>
-      <Table columns={columns} dataSource={products}></Table>
+      <Table columns={columns} dataSource={products} rowKey={row=>row.id}></Table>
     </div>
   )
 }

@@ -1,8 +1,22 @@
-import {API} from './index';
-import {URL} from './config';
+import {API,URL} from './config';
 
-export const ProductAdd = async ()=>{
-  try{
-    const res = await API.post(URL.product);
+export const ProductAPI =  {
+  getAll: async function(id){
+    return await API.request({
+      url:`/products/all`,
+      method:'GET',
+      params:{
+        // name:3
+      }
+    })
+  },
+  getByPage: async function(page){
+    return await API.request({
+      url:`/products`,
+      method:'GET',
+      params:{
+        page
+      }
+    })
   }
 }

@@ -1,6 +1,6 @@
 const env = process.env;
 require('dotenv').config();
-console.log("env:", env.DB_USER)
+
 const config = {
   db:{
     host:env.DB_HOST || '',

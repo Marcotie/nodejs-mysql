@@ -3,9 +3,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var productsRouter = require('./routes/products');
+var indexRouter = require('./routes/indexRouter');
+var usersRouter = require('./routes/userRouter');
+var productsRouter = require('./routes/productRouter');
 var app = express();
 var cors = require('cors');
 app.use(logger('dev'));

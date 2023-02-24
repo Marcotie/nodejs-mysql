@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Button, Modal,Input } from 'antd';
-import {API} from '../api';
 import './productAdd.scss';
 
 export const ProductAdd = () => {
