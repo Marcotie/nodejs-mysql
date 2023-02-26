@@ -3,7 +3,7 @@ import { Button, Modal, Input } from 'antd';
 import { ProductAPI } from '../api/productAPI';
 import './productAdd.scss';
 
-export const ProductAdd = () => {
+export const ProductAdd = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [obj,setObj] = useState({});
 
@@ -13,7 +13,7 @@ export const ProductAdd = () => {
 
   const handleOk = () => {
     setIsModalOpen(false);
-    ProductAPI.create(obj)
+    props.onAdd(obj);
   };
 
   const handleCancel = () => {

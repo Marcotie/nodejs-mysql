@@ -16,7 +16,7 @@ async function getByPageNumber(page = 1){
 }
 
 async function getAll(){
-  const data = await db.query(`select id,quote, author from quote`);
+  const data = await db.query(`select id,quote, author from quote order by updated_at desc`);
   return {
     data
   }
