@@ -24,5 +24,10 @@ export const ProductAPI =  {
       name:product.name,
       description:product.description
     })
+  },
+  deleteOne: async function(id){
+    return await API.post('/products/delete',{
+      id:id
+    })
   }
 }

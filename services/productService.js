@@ -17,7 +17,6 @@ async function getByPageNumber(page = 1){
 
 async function getAll(){
   const data = await db.query(`select id,quote, author from quote`);
-  console.log("data:",data)
   return {
     data
   }
@@ -44,7 +43,6 @@ function validateCreate(quote){
   }
 }
 async function create(data){
-  console.log("validata:",data)
   validateCreate(data);
   const result = await db.query(`insert into quote(author,quote) values (?,?)`,[data.name,data.description]);
   if(result.affectedRows){
@@ -53,8 +51,18 @@ async function create(data){
   return 'error in creating quote'
 }
 
+async function deleteOne(id){
+  console.log("id:",id)
+  const result = await db.query(`delete from quote where id = ?`,[id]);
+  if(result.affectedRows){
+    return 'delete quote successfully'
+  }
+  return 'error in deleting quote'
+}
+
 module.exports = {
   getByPageNumber,
   getAll,
-  create
+  create,
+  deleteOne
 }

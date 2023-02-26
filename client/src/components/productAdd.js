@@ -13,7 +13,6 @@ export const ProductAdd = () => {
 
   const handleOk = () => {
     setIsModalOpen(false);
-    console.log(obj)
     ProductAPI.create(obj)
   };
 
@@ -24,7 +23,7 @@ export const ProductAdd = () => {
   const handleName = (e)=>{
     setObj(Object.assign({},obj,{name:e.target.value}))
   }
-  
+
   const handleDescription =(e)=>{
     setObj(Object.assign({},obj,{description:e.target.value}))
   }
@@ -34,10 +33,8 @@ export const ProductAdd = () => {
         Add
       </Button>
       <Modal title="Create Product" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        
         <Input placeholder="name" value={obj.name} onChange={handleName} />
         <Input placeholder="description" value={obj.description} onChange={handleDescription} />
-
       </Modal>
     </div>
   );

@@ -26,4 +26,13 @@ router.post("/add", async function(req,res,next){
     next(err)
   }
 })
+router.post("/delete", async function(req,res,next){
+  try{
+    let response = await productService.deleteOne(req.body.id);
+    res.json(response)
+  }catch(err){
+    console.error('error while delete product',err.message);
+    next(err);
+  }
+})
 module.exports = router;
