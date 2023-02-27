@@ -52,7 +52,6 @@ async function create(data){
 }
 
 async function deleteOne(id){
-  console.log("id:",id)
   const result = await db.query(`delete from quote where id = ?`,[id]);
   if(result.affectedRows){
     return 'delete quote successfully'
@@ -60,9 +59,26 @@ async function deleteOne(id){
   return 'error in deleting quote'
 }
 
+async function getById(id){
+  const result = await db.query(`select * from quote where id = ?`,[id]);
+  if(result[0]){
+    return result[0]
+  }
+  return 'error in get one quote'
+}
+async function edit(id, obj){
+  const result = await db.query(`update quote set author = ?, quote = ?, updated_at = ? where id = ?`,[obj.author, obj.quote, new Date(), id]);
+  if(result.affectedRows){
+    return 'update successfully'
+  }
+  return 'error in updating quote'
+}
+
 module.exports = {
   getByPageNumber,
   getAll,
   create,
-  deleteOne
+  deleteOne,
+  getById,
+  edit
 }

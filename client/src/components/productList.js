@@ -20,7 +20,7 @@ export const ProductList = (props) => {
       key: 'action',
       render: (_, record) => (
         <Space>
-          <Button>Edit</Button>
+          <Button onClick={()=>{props.onEdit(record)}}>Edit</Button>
           <Button danger onClick={() => props.onDelete(record)}>Delete</Button>
         </Space>
       )

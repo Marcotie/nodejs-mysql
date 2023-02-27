@@ -26,10 +26,27 @@ router.post("/add", async function(req,res,next){
     next(err)
   }
 })
-router.post("/delete", async function(req,res,next){
+
+router.delete("/delete", async function(req,res,next){
   try{
     let response = await productService.deleteOne(req.body.id);
     res.json(response)
+  }catch(err){
+    console.error('error while delete product',err.message);
+    next(err);
+  }
+})
+
+router.post("/edit", async function(req,res,next){
+  try{
+    let oldData = await productService.getById(req.body.id);
+    if(Boolean(oldData.id) == false){
+      next("not existed")
+    }
+    if(req.body.author.length==0 || req.body.quote.length==0){
+      next("author or quote should not be empty")
+    }
+    res.json(await productService.edit(oldData.id, req.body))
   }catch(err){
     console.error('error while delete product',err.message);
     next(err);

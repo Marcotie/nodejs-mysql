@@ -6,6 +6,7 @@ import './products.scss';
 
 export const Products = ()=>{
   const [products, setProducts] = useState([])
+  const [product, setProduct] = useState({});
   useEffect(() => {
     initData();
   }, [])
@@ -39,11 +40,25 @@ export const Products = ()=>{
       })
   }
 
+  const openEdit = (record)=>{
+    setProduct(record);
+  }
+  const handleEdit = (obj)=>{
+    console.log("edit:", obj);
+    ProductAPI.edit(obj)
+    .then(res=>{
+      initData();
+    })
+    .catch(err=>{
+      console.log("edit error:", err)
+    })
+  }
+
   return(
     <div className="products-container">
       <h2>Product admin:</h2>
-      <ProductAdd onAdd={handleAdd}/>
-      <ProductList products={products} onDelete={handleDelete}></ProductList>
+      <ProductAdd product={product} onAdd={handleAdd} onEdit={handleEdit}/>
+      <ProductList products={products} onDelete={handleDelete} onEdit={openEdit}></ProductList>
     </div>
   )
 }
