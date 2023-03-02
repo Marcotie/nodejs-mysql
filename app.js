@@ -3,14 +3,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/indexRouter');
-var usersRouter = require('./routes/userRouter');
-var productsRouter = require('./routes/productRouter');
+var indexRouter = require('./src/routes/indexRouter');
+var usersRouter = require('./src/routes/userRouter');
+var productsRouter = require('./src/routes/productRouter');
 var app = express();
 var cors = require('cors');
 
 const swaggerUi = require('swagger-ui-express'),
-swaggerDocument = require('./swagger.json');
+swaggerDocument = require('./src/swagger.json');
 
 app.use(logger('dev'));
 app.use(express.json());
