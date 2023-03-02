@@ -5,7 +5,7 @@
 - [x] SQL
 - [x] backend restful API 
 - [x] axios interpretor(error handle)
-- [ ] document for api(swagger)
+- [x] document for api(swagger)
 - [ ] JavaScript => TypeScript
 - [ ] user mangement(add,delete,edit)
 - [ ] RABC(role-based access control)
