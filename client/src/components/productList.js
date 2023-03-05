@@ -1,6 +1,4 @@
-import { useState, useEffect } from 'react';
 import { Table, Space, Button } from 'antd';
-import { ProductAPI } from '../api/productAPI';
 
 export const ProductList = (props) => {
   
