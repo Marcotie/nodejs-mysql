@@ -6,7 +6,8 @@
     "start": "nodemon app.ts",
     "tsc": "tsc",
     "postinstall": "npm run tsc",
-    "dev": "ts-node-dev app.ts"
+    "dev": "ts-node-dev app.ts",
+    "product":"node ./dist/app.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

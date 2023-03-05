@@ -37,8 +37,7 @@ function validateCreate(quote){
     message.push('quote cannot be longer than 255 characters')
   }
   if(message.length){
-    let error = new Error(message.join())
-    error.statusCode = 400;
+    let error:Error = new Error(message.join())
     throw error;
   }
 }
@@ -82,3 +81,4 @@ module.exports = {
   getById,
   edit
 }
+export{};

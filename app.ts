@@ -1,4 +1,4 @@
-var express = require('express');
+let express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -37,3 +37,4 @@ app.listen(4000,()=>{
   console.log("server listening on port 4000")
 })
 module.exports = app;
+export {};
