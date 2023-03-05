@@ -19,7 +19,7 @@ router.get("/all",async function(req,res,next){
   }
 })
 
-router.get("/getProductById",async function(req,res,next){
+router.get("/getProduct",async function(req,res,next){
   try{
     let id = req.query.id;
     if(Boolean(id) == false){
