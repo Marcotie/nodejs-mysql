@@ -1,5 +1,5 @@
 use demo;
-CREATE TABLE `quote` 
+CREATE TABLE if not exists demo.quote
 ( `id` INT(11) NOT NULL AUTO_INCREMENT , 
  `quote` VARCHAR(255) NOT NULL , 
  `author` VARCHAR(255) NOT NULL , 

@@ -63,7 +63,7 @@ async function getById(id){
   if(result[0]){
     return result[0]
   }
-  return 'error in get one quote'
+  return 'id not exist'
 }
 async function edit(id, obj){
   const result = await db.query(`update quote set author = ?, quote = ?, updated_at = ? where id = ?`,[obj.author, obj.quote, new Date(), id]);
