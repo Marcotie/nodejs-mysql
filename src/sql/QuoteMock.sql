@@ -1,7 +1,6 @@
 use demo;
 INSERT INTO `quote` (`id`, `quote`, `author`) VALUES
 (1, 'There are only two kinds of languages: the ones people complain about and the ones nobody uses.', 'Bjarne Stroustrup'),
-(3, 'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.', 'Martin Fowler'),
 (4, 'First, solve the problem. Then, write the code.', 'John Johnson'),
 (5, 'Java is to JavaScript what car is to Carpet.', 'Chris Heilmann'),
 (6, 'Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.', 'John Woods'),

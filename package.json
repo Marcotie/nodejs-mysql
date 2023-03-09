@@ -7,7 +7,7 @@
     "tsc": "tsc",
     "postinstall": "npm run tsc",
     "dev": "ts-node-dev app.ts",
-    "product":"node ./dist/app.js"
+    "product": "node ./dist/app.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
